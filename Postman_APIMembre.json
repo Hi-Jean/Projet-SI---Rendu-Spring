@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "2042f26f-3531-43de-99df-cd093599b170",
+		"name": "ProjetSI - API Membres",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32607864"
+	},
+	"item": [
+		{
+			"name": "default",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/{{main_endpoint}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{main_endpoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteMembre",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/{{main_endpoint}}/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{main_endpoint}}",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateMembre",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\": \"Dupond\",\r\n    \"prenom\": \"Emile\",\r\n    \"age\": 25,\r\n    \"adresse\": \"emile.dup@gmail.com\",\r\n    \"mdp\": \"NouveauMdp\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/{{main_endpoint}}/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{main_endpoint}}",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createMembre",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": null,\r\n    \"nom\": \"Dupond\",\r\n    \"prenom\": \"Emile\",\r\n    \"age\": 25,\r\n    \"adresse\": \"emile.dup@gmail.com\",\r\n    \"mdp\": \"MdpSuperSecret\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/{{main_endpoint}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{main_endpoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllMembres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/{{main_endpoint}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{main_endpoint}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMembreByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/{{main_endpoint}}/3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"{{main_endpoint}}",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "main_endpoint",
+			"value": "membre",
+			"type": "string"
+		}
+	]
+}
