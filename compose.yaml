@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db_sql: # -> à utiliser comme nom de domaine dans les URLs de connexions au lieu de localhost
+    container_name: db_sql_mariadb
+    image: mariadb:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_api_evenement
+    command: --lower_case_table_names=1 --init-file /data/application/init.sql
+    volumes:
+      - ./BDD_maria:/var/lib/mysql
+      - ./SQL_INIT/init.sql:/data/application/init.sql
+    ports:
+      - "3306:3306"
+  db_nosql: # -> à utiliser comme nom de domaine dans les URLs de connexions au lieu de localhost
+    container_name: db_nosql_mongodb
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - ./BDD_mongo:/data/db
+    ports:
+      - "27017:27017"
+  
+  api_lieu:
+    container_name: api_lieu
+    depends_on:
+      - db_sql
+    build:
+      context: ./
+      dockerfile: Dockerfiles/Dockerfile_API_Lieu
+    ports:
+      - "8081:8080"
+  
+  api_membre:
+    container_name: api_membre
+    depends_on:
+      - db_sql
+    build:
+      context: ./
+      dockerfile: Dockerfiles/Dockerfile_API_Membre
+    ports:
+      - "8082:8080"

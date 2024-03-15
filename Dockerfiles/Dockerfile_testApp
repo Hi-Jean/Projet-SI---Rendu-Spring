@@ -1,0 +1,14 @@
+# Utiliser l'image de base officielle openjdk
+FROM openjdk:13
+
+# Copier les fichiers statiques dans le dossier de contenu de openjdk
+COPY ./Chemin/Vers/Le/Projet /usr/src/app
+
+WORKDIR /usr/src/app
+
+# Exposer le port 8080
+EXPOSE 8080
+
+#CMD ["ls", "-a","-l", "./build/libs"]
+
+ENTRYPOINT ["java", "-jar", "./build/libs/demo-0.0.1-SNAPSHOT.jar"]

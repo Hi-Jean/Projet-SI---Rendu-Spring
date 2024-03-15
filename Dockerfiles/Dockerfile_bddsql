@@ -1,0 +1,6 @@
+FROM mariadb:latest
+
+# Exposer le port 8080
+EXPOSE 3306
+
+CMD ["CREATE", "DATABASE","IF" ,"NOT" ,"EXISTS" ,"okidoki"]
