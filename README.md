@@ -7,7 +7,7 @@ COTTO Erwan / JEAN Hippolyte / THOMAS Jean-André
 
 MARS 2024
 
-# Versio 
+# Version
 V 1.0
 
 # Fonctionnalités API
